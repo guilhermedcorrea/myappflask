@@ -1,0 +1,93 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+<div class="table table-striped table-responsive table-bordered">
+        <table class="table table-striped table table-hover table table-bordered table table-sm  flex-md-row flex-md-column align-items-sm-center flex-fill  justify-content table-responsive">
+
+               <th>IMAGEM</th>
+               <th><img src="{{valores.imagem}}" height="500" width="500"></th>
+
+                </tr>
+                    <th>ID VTEX</th>
+                    <th>{{ valores.referencia }}</th>
+                    </tr>
+                <tr>
+
+                <tr>
+                    <th>EAN</th>
+                    <th>{{ valores.ean }}</th>
+                    </tr>
+                <tr>
+    
+                <tr>
+                    <th>PERFIL SITE</th>
+                    <th>{{ valores.perfil }}</th>
+                    </tr>
+                <tr>
+                <tr>
+                    <th>NOME ITEM</th>
+                    <th>{{ valores.item }}</th>
+                    </tr>
+                <tr>
+    
+                <tr>
+                    <th>MARCA</th>
+                    <th>{{ valores.marca }}</th>
+                    </tr>
+                <tr>
+
+                <tr>
+                    <th>CATEGORIA</th>
+                    <th>{{ valores.categoria }}</th>
+                    </tr>
+                <tr>
+
+
+                <tr>
+                    <th>PREÇO MERCOSTORE</th>
+                    <th>{{ valores.precomerco }}</th>
+                    </tr>
+                <tr>
+                <tr>
+                    <th>SELLER MENOR PREÇO</th>
+                    <th>{{ valores.menorpreco }}</th>
+                    </tr>
+                <tr>
+
+                <tr>
+                    <th>SELLER MAIOR PREÇO</th>
+                    <th>{{ valores.maiorpreco }}</th>
+                    </tr>
+                <tr>
+
+                <tr>
+                    <th>DIFERENÇA</th>
+                    <th>{{ valores.diferenca }}</th>
+                    </tr>
+                <tr>
+
+                <tr>
+                    <th>DIFERENÇA</th>
+                    <th>{{ valores.diferenca }}</th>
+                    </tr>
+                <tr>
+
+                <tr>
+                    <th>URL GOOGLE</th>
+                    <th>{{ valores.urlgoogle }}</th>
+                    </tr>
+                <tr>
+
+                <tr>
+                    <th>PRODUTO ATIVO</th>
+                    <th>{{ valores.bitAtivo }}</th>
+                    </tr>
+                <tr>
+    
+                
+    
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

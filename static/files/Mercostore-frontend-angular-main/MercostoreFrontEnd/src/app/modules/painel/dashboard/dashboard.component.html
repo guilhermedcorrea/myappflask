@@ -1,0 +1,21 @@
+<div>
+    <mat-card class="example-card" *ngFor="let card of dashBoardCard"  fxFlex="0 1 calc(25% - 11px)" fxFlex.lt-md="0 1 calc(50% - 11px)" fxFlex.lt-sm="100%" style="margin: 6px;">
+        <mat-card-title>{{ card.porcentagem }}%</mat-card-title>
+        <mat-card-content>
+        <p>{{ card.titulo }}</p>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div>
+    <mat-card class="example-card">
+        <mat-card-title>BRUNAO</mat-card-title>
+        <mat-card-content>
+            <mat-progress-spinner
+            class="example-margin"
+            color="primary"
+            mode="determinate"
+            value="50">
+        </mat-progress-spinner>
+        </mat-card-content>
+    </mat-card>
+</div>

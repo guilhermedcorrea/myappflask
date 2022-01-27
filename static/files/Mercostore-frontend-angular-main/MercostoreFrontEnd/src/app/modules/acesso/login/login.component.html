@@ -1,0 +1,30 @@
+<form [formGroup]="formularioLogin">
+    <mat-card class="card-login">
+        <mat-card-content>
+            <img style="background-color: rgb(190, 189, 189);" class ="logo" src="../../../../assets/img/logo_mercostore.png" />
+            <mat-form-field class="full-width-input">
+            <input matInput placeholder="Email" formControlName="email" required>
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error>
+                Digite um e-mail válido
+            </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+            <input matInput type="password" placeholder="Senha" [type]="hide ? 'password' : 'text'"  formControlName="senha" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error>
+                Digite uma senha válida
+            </mat-error>
+            </mat-form-field>
+            <div style="text-align: center">
+                <button class="btnlogin" type="button" mat-raised-button (click)="auth()">Login</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>
+<div *ngIf="erromsg" class="errormsg">
+    <mat-card style="background-color: #323232; color: #E0E3E8;">
+        Usuário e/ou senha inválido.
+        <button class="btnerror" type="button" mat-button (click)="hidemsg()">Ok</button>
+    </mat-card>
+</div>

@@ -1,0 +1,59 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+<form action="/downloadinfos" method="POST">
+    <div class="container" class="table-responsive Width 100%"></div>
+    <input class="form-control filtro" id="myInput" name="myInput" type="text" placeholder="Ordene seller">
+    <button type="submit" class="btn btn-danger" href="/downloadinfos">buscar</button>
+
+    <select class="form-control filtro" id="selecione" name="selecione" >
+               
+    <option type="text" value="Menor Preço" >Menor Preço</option>
+    <option type="text" value="Maior Preço">Maior Preço</option>
+    <option type="text" value="Perdendo">Perdendo</option>
+    <option type="text" value="Ganhando">Ganhando</option>
+    <option type="text" value="Sem Concorrente">Sem Concorrente</option>
+
+
+    
+    </select>
+   
+    <button type="submit" class="btn btn-success" type="button" href="#">Download Relatório</button>
+    <table class="table table-striped table table-hover table table-bordered table table-sm  flex-md-row flex-md-column align-items-sm-center flex-fill  justify-content table-responsive">
+      
+            
+            <tr>
+                <th>ID VTEX</th>
+                <th>REFERENCIA</th>
+                <th>ITEM</th>
+                <th>MARCA</th>
+                <th>MEU PREÇO</th>
+                <th>SELLER MENOR PREÇO</th>
+                <th>MENOR PREÇO</th>
+                <th>SELLER MAIOR PREÇO</th>
+                <th>MAIOR PREÇO</th>
+                
+           
+            </tr>
+        </thead>
+        <tbody>
+        {% for jogo in query_sets %}
+                        <tr>
+                            <td>{{ jogo.idvtex }}</td>
+                            <td>{{ jogo.referencia }}</td>
+                            <td>{{ jogo.item }}</td>
+                            <td>{{ jogo.marca}}</td>
+                            <td>{{ jogo.precomerco}}</td>
+                            <td>{{ jogo.sellermen}}</td>
+                            <td>{{ jogo.menorpreco}}</td>
+                            <td>{{ jogo.sellermai}}</td>
+                            <td>{{ jogo.maiorpreco}}</td>
+                            
+                        </tr>
+        {% endfor %}
+        </tbody>
+    </div>
+    </table>
+    </form>
+    
+{% endblock %}

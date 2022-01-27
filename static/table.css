@@ -1,0 +1,15 @@
+/*CSS BRUNÃO*/  
+.data-table {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mat-table { overflow: auto; }
+  
+  .mat-label { display: none; }
+  
+  .mat-cell a {
+    text-decoration: underline;
+    color: darkslateblue;
+    cursor: pointer;
+  }

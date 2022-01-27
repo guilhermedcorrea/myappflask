@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="Pt-Br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de Seller</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  
+        <link rel="stylesheet" href="../static/css/CadastroUser.css">
+
+    </head>
+
+    <body>
+
+        <div class='container'>
+            <div class='card'>
+                <img src="../static/img/logo_mercostore.png" alt="">
+                <form action="/cadastroseller"  method="POST">
+                    <div class="label-float">
+                        <input type="text" id="nomeseller" name="nomeseller" placeholder=" " required>
+                        <label id="labelSeller" for="nomeseller">Seller</label>
+                    </div>
+
+                    <div class="label-float">
+                        <input type="text" id="Sellerid" name="Sellerid" placeholder=" " required>
+                        <label id="labelSellerid" for="Sellerid">idSeller</label>
+                    </div>
+
+                    <div class="label-float">
+                        <input type="text" id="Nome" name="Nome" placeholder=" " required>
+                        <label id="labelNome" for="Nome">Nome responsavel</label>
+                    </div>
+
+                    <div class="label-float">
+                        <input type="text" id="email" name="email" placeholder=" " required>
+                        <label id="labelemail" for="email">Email</label>
+                    </div>
+
+
+                    <div class="label-float">
+                        <input type="password" id="senha" name="senha" placeholder=" " required>
+                        <label id="labelsenha" for="senha">Senha</label>
+                    </div>
+
+
+                    <div class='justify-center'>
+                        <button onclick='cadastrar()'>Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+
+    <script src="../static/js/CadastroUser.js"></script>
+
+</html>
+

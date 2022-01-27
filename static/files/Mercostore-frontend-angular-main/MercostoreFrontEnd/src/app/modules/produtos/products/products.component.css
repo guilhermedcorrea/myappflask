@@ -1,0 +1,69 @@
+.example-container {
+    height: 600px;
+    overflow: auto;
+    margin-top: 10px;
+  }
+  
+  table {
+    width: 100%;
+  }
+
+.mat-header-cell{
+    font-weight: bolder;
+}
+
+.example-full-width{
+  padding: 6px;
+  width: 100%;
+}
+
+
+
+/*CSS BRUNÃO*/  
+.data-table {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mat-table { overflow: auto; }
+  
+  .mat-label { display: none; }
+  
+  .mat-cell a {
+    text-decoration: underline;
+    color: darkslateblue;
+    cursor: pointer;
+  }
+  
+  @media only screen and (min-width: 880px) {
+    .mat-table { width: 100%; }
+  
+    .mat-cell:nth-child(1) { width: 10%; }
+    .mat-cell:nth-child(2) { width: 10%; }
+    .mat-cell:nth-child(3) { width: 20%; }
+    .mat-cell:nth-child(4) { width: 10%; }
+    .mat-cell:nth-child(5) { width: 10%; }
+    .mat-cell:nth-child(6) { width: 10%; }
+    .mat-cell:nth-child(7) { width: 10%; }
+    .mat-cell:nth-child(8) { width: 10%; }
+    .mat-cell:nth-child(9) { width: 10%; }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .mobile-label {
+      width: 80px;
+      display: inline-block;
+      font-weight: bold;
+    }
+  
+    .mat-header-row {
+      display: none;
+    }
+  
+    .mat-row { 
+      flex-direction: column;
+      align-items: start;
+      padding: 8px 24px;
+    }
+  }
+ 

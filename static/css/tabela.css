@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.icone-btn{
+  height: auto; 
+  width: auto; 
+  max-width: 20px; 
+  max-height: 300px;
+}
+
+.navbar{
+    background-color: #0f60a2;
+    text-align: right;
+    font-style: bold;
+    font-size: 15pt;
+    text-align: right;
+    font-size: 0.875rem;
+}
+
+.nav-item{
+  margin: 10px;
+}
+
+h1{
+  font-size: 35pt;
+  font-family: Roboto;
+  font-style: bold;
+  color: #0f60a2;
+  margin-left: 40%;
+  padding: auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}

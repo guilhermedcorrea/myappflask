@@ -1,0 +1,4 @@
+<div *ngIf="loadingService.isLoading | async" class="loading-content">
+    <mat-spinner style="top: 40%; left: 45%;"></mat-spinner>
+</div>
+<router-outlet></router-outlet>

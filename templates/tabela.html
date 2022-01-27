@@ -1,0 +1,119 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./static/css/tabela.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Tabela</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="https://www.mercostore.com.br">
+                <img src="./static/img/logo2.png" alt="">
+            </a>
+        
+            <div class="collapse navbar-collapse nav" id="navbarSupportedContent">
+              <ul class="navbar-nav w-100 ml-auto">
+                
+                <li class="nav-item ml-auto">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/relatorios">Relatorios</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Cadastrar
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">Usuário</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Seller</a>
+                    </div>
+                  </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sair</a>
+                </li>
+              </ul>        
+            </div>
+          </nav>
+    </header>
+
+    <main>
+
+        <div>
+            <h1>Tabela de Preços</h1>
+        </div> 
+
+        <div class="container">  
+            <input class="form-control" id="myInput" type="text" placeholder="Pesquise aqui...">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td scope="col">ID VTEX</td>
+                        <td scope="col">SellerMercoStore</td>
+                        <td scope="col">Ean</td>
+                        <td scope="col">SKU</td>
+						<td scope="col">CODIGO</td>
+						<td scope="col">PRODUTO</td>
+						<td scope="col">MARCA</td>
+						<td scope="col">MEU PREÇO</td>
+						<td scope="col">SELLER MENOR PRECO</td>
+						<td scope="col">MENOR PRECO</td>
+						<td scope="col">SELLER MAIOR PRECO</td>
+						<td scope="col">MAIOR PRECO</td>
+						<td scope="col">DIFERENÇA</td>
+						<td scope="col">CATEGORIA PRODUTO</td>
+						
+					
+                  
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+				{% for prod in produtos.items%}
+					
+                    <tr>
+                        <td>{{ prod.id_vtex }}</td>
+                        <td>{{ prod.nomeseller }}</td>
+						 <td>{{ prod.ref_ean }}</td>
+						 <td>{{ prod.sku }}</td>
+						  <td>{{ prod.ref_codigo }}</td>
+						  <td>{{ prod.nome_produto }}</td>
+						  <td>{{ prod.nome_produto }}</td>
+						  <td>{{ prod.marcaproduto}}</td>
+						  <td>{{ prod.preco_seller}}</td>
+						  <td>{{ prod.sellermenorpreco}}</td>
+						  <td>{{ prod.menorpreco}}</td>
+						  <td>{{ prod.sellermaiorpreco}}</td>
+						  <td>{{ prod.maiorpreco}}</td>
+						  <td>{{ prod.diferenca_preco}}</td>
+						  <td>{{ prod.categoriaproduto}}</td>
+                   
+                   
+                        
+                    </tr>
+					{% endfor %}
+                </tbody>
+            </table>
+        </div>  
+    </main>
+</body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
+        </script>
+

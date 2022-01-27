@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="Pt-Br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de Usuário</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  
+        <link rel="stylesheet" href="./static/css/CadastroUser.css">
+
+    </head>
+    <body>
+        <div class='container'>
+        <div class='card'>
+		<form action="{{url_for('registros')}}" method="POST">
+            <img src="./static/img/logo_mercostore.png" alt="">
+
+            <div id='msgError'></div>
+
+            <div id='msgSuccess'></div>
+           
+               <h4>Selecione o Seller desse usuário:</h4>
+                
+                <div class="label-float-lista"class="form-group">
+                
+                    <label id="labelNome" for="usuario"></label>
+                    
+                    <select  class="SellersNome" id="SellersNome" name="Sellers">
+                        {% for seller in sellers%}
+                        <option value="{{seller}}" >{{seller.sellername}}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+
+                <div class="label-float">
+                    <input type="text" id="usuario" name="usuario" placeholder="usuario" required  class="form-control">
+                    <label id="labelUsuario"  for="usuario" name="usuario">Usuário</label>
+                </div>
+
+                 <div class="label-float">
+                    <input type="text" id="email" name="email" placeholder=" email" required class="form-control">
+                    <label id="useremail" >email</label>
+                </div>
+
+                <div class="label-float">
+                    <input type="password" id="senha" name="senha" placeholder="senha " required class="form-control">
+                    <label id="labelSenha">Senha</label>
+                    <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
+                </div>
+
+
+                <div class="label-float">
+                    <input type="password" id="confirmSenha" name="confirmSenha" placeholder=" " required class="form-control">
+                    <label id="labelConfirmSenha">Confirmar Senha</label>
+                    <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
+                </div>
+                
+                <div class='justify-center'>
+                    <button onclick='cadastrar()'>Cadastrar</button>
+                </div>
+	
+            </div>
+        </div>
+    </form>
+    </body>
+
+    <script src="./static/js/CadastroUser.js"></script>
+
+</html>

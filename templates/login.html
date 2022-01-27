@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  
+        <link rel="stylesheet" href="./static/css/Login.css">
+        <title>Mercostore - Login</title>
+        <style>
+        .notification {
+            text-align:center;
+            background-color: antiquewhite;
+            width:100%
+            height: 30px;
+        }
+        </style>
+    </head>
+    <body>
+
+        <div class='container'>
+            <div class='card'>
+
+                <img src="./static/img/logo_mercostore.png" alt=""> 
+
+            <form action="{{url_for('login')}}" method="POST" >
+
+                    {%with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {%for message in messages %}
+                    <div class ="notification">
+                        <{{message}}>
+                    </div>
+                    {% endfor %}
+                    {%endif%}
+                    {% endwith %}
+
+                <div class='label-float'>
+					{{form.usuario(class_="form-control")}}
+                    <label id='userLabel' for='usuario'>Usuario</label>
+                </div>
+                <div class='label-float'>
+                    {{form.email(class_="form-control")}}
+                    <label id='emailLabel' for='email'>email</label>
+                </div>
+
+                <div class='label-float'>
+                    {{form.senha(class_="form-control")}}
+                    <label id='senhaLabel' for='senha'>Senha</label>
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                </div>
+            
+                <div class='justify-center'>
+				{{form.submit(class_="btn btn-info btn-block btn-lg")}}
+                    
+                </div>
+            </form>
+            
+        </div>
+    </body>
+    <script src="./static/js/Login.js"></script>

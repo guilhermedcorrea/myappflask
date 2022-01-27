@@ -1,0 +1,75 @@
+body {
+    padding-top: 10px;
+}
+
+.btn {
+    margin-bottom: 10px;
+}
+
+.container {
+    border-radius: 4px;
+    margin: auto;
+    width: 80%;
+}
+
+.little-container {
+    width: 40%;
+    margin: auto;
+}
+
+figcaption {
+    text-align: center;
+    margin: 3px auto;
+}
+
+.fileContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.fileContainer [type=file] {
+    cursor: pointer;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+
+td {
+    text-align: center;
+}
+
+.img-imgs {
+    max-width:200px;
+    max-height:200px;
+    width: auto;
+    height: auto;
+}
+
+.img-imgs {
+  height: <escolha a altura>:
+}
+
+Tenho uma tabela com uma imagem de fundo e gostaria, de alguma forma, definir o tamanho desta tabela para que a imagem aparecesse completamente.
+
+Até agora precisa conter dados na tabela, mas quando tem poucos dados ela corta e, dependendo da quantidade, ela nem mostra. Então teria alguma forma de, independente da quantidade de dados, ela se mostrar do tamanho da imagem?
+
+table {
+  page-break-inside: auto;
+  width: 100%;
+}
+
+tr {
+  page-break-inside: avoid;
+  page-break-after: auto
+}
+
+thead {
+  display: table-header-group
+}

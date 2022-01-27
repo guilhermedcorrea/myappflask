@@ -1,0 +1,143 @@
+<mat-card class="example-card">
+    <mat-card-title>Filtros</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="formularioFiltroProduto">
+        <div fxLayout="row wrap">
+            <div fxFlex="18" fxFill fxLayoutAlign="star center">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>IdVetex</mat-label>
+                    <input formControlName="IdVetex" matInput placeholder="IdVetex">
+                </mat-form-field>
+            </div>
+            <div fxFlex="18" fxFill fxLayoutAlign="star center">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>EAN</mat-label>
+                    <input formControlName="EAN" matInput placeholder="EAN">
+                </mat-form-field>
+            </div>
+            <div fxFlex="30" fxFill fxLayoutAlign="star center">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Nome do Produto</mat-label>
+                    <input formControlName="Produto" matInput placeholder="Nome do Produto">
+                </mat-form-field>
+            </div>
+            <div fxFlex="18" fxFill fxLayoutAlign="star center">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Marca</mat-label>
+                    <input formControlName="Marca" matInput placeholder="Marca">
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row wrap">
+            <div fxFlex="18" fxFill fxLayoutAlign="star center">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Departamento</mat-label>
+                    <input formControlName="Departamento" matInput placeholder="Departamento">
+                </mat-form-field>
+            </div>
+            <div fxFlex="18" fxFill fxLayoutAlign="star center">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Categoria</mat-label>
+                    <input formControlName="Categoria" matInput placeholder="Categoria">
+                </mat-form-field>
+            </div>
+            
+            <div *ngIf="loginADM" fxFlex="18" fxFill fxLayoutAlign="star center">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Seller</mat-label>
+                    <input formControlName="Seller" matInput placeholder="Seller">
+                </mat-form-field>
+            </div>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="button" mat-button (click)="loadingFilterProducts(1,90)">Filtrar</button>
+      <button type="button" mat-button (click)="cleanFilter()">Limpar</button>
+    </mat-card-actions>
+  </mat-card>
+
+<div     
+#table
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()"
+    [scrollWindow]="false"
+    class="example-container mat-elevation-z8 data-table" 
+>
+
+    <table mat-table [dataSource]="dataSource">
+  
+        <!-- Coluna IdVetex -->
+        <ng-container matColumnDef="IdVetex">
+        <th mat-header-cell *matHeaderCellDef> IdVetex. </th>
+        <td mat-cell *matCellDef="let produtos"> {{produtos.IdVetex}} </td>
+        </ng-container>
+
+        <!-- Coluna EAN -->
+        <ng-container matColumnDef="EAN">
+        <th mat-header-cell *matHeaderCellDef> EAN </th>
+        <td mat-cell *matCellDef="let produtos"> {{produtos.EAN}} </td>
+        </ng-container>
+    
+        <!-- Nome do Produto -->
+        <ng-container matColumnDef="Produto">
+        <th mat-header-cell *matHeaderCellDef> Nome do Produto </th>
+        <td mat-cell *matCellDef="let produtos"> {{produtos.NomeProduto}} </td>
+        </ng-container>
+    
+        <!-- Coluna Marca -->
+        <ng-container matColumnDef="Marca">
+        <th mat-header-cell *matHeaderCellDef> Marca </th>
+        <td mat-cell *matCellDef="let produtos"> {{produtos.Marca}} </td>
+        </ng-container>
+
+        <!-- Coluna Departamento -->
+        <ng-container matColumnDef="Departamento">
+            <th mat-header-cell *matHeaderCellDef> Departamento </th>
+            <td mat-cell *matCellDef="let produtos"> {{produtos.Departamento}} </td>
+        </ng-container>
+    
+        <!-- Coluna Categoria -->
+        <ng-container matColumnDef="Categoria">
+            <th mat-header-cell *matHeaderCellDef> Categoria </th>
+            <td mat-cell *matCellDef="let produtos"> {{produtos.Categoria}} </td>
+        </ng-container>
+
+        <!-- Coluna Seller -->
+        <ng-container matColumnDef="Seller">
+            <th mat-header-cell *matHeaderCellDef> Seller </th>
+            <td mat-cell *matCellDef="let produtos"> {{produtos.Seller}} </td>
+        </ng-container>
+
+        
+        <!-- Coluna PrecoSeller -->
+        <ng-container matColumnDef="PrecoSeller">
+            <th mat-header-cell *matHeaderCellDef> PrecoSeller </th>
+            <td  mat-cell *matCellDef="let produtos"> 
+                <p *ngIf="produtos.BitMenor"> 
+                  {{ produtos.PrecoSeller | currency: 'BRL' : 'symbol' }} 
+                  <span class="material-icons">
+                    done
+                  </span>
+                </p>
+                <p *ngIf="!produtos.BitMenor"> 
+                    {{ produtos.PrecoSeller | currency: 'BRL' : 'symbol' }} 
+                    <span class="material-icons">
+                        highlight_off
+                    </span>                        
+                </p>
+            </td>
+        </ng-container>
+
+        <!-- Coluna Menor Preco Google -->
+        <ng-container matColumnDef="MenorPreco">
+            <th mat-header-cell *matHeaderCellDef> MenorPreco </th>
+            <td mat-cell *matCellDef="let produtos"> {{ produtos.MenorPreco | currency: 'BRL' : 'symbol' }} </td>
+        </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

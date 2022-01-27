@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container table-responsive">
+        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+        <table class="table table-bordered table-striped w-auto">
+            <thead>
+
+                <tr>
+                    <td scope="col">ID USUARIO</td>
+                    <td scope="col">SELLER</td>
+                    <td scope="col">NOME</td>
+                    <td scope="col">EMAIL</td>
+                    <td scope="col">SENHA</td>
+                    <td scope="col">PERFIL</td>
+
+                </tr>
+
+            </thead>
+            <tbody id="myTable">
+            {% for query in query_sets %}
+                <tr>
+                    <td>{{ query.id }}</td>
+                    <td>{{ query.seller }}</td>
+                    <td>{{ query.nome }}</td>
+                    <td>{{ query.email }}</td>
+                    <td>{{ query.senha }}</td>
+                    <td>{{ query.perfil }}</td>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
+        </script>
+</html>
